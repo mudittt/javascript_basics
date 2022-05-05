@@ -1,0 +1,17 @@
+body {
+  background: linear-gradient(45deg, rgb(29, 119, 255), rgb(226, 224, 224));
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #fff;
+}
+.box {
+  font-size: medium;
+  font-weight: lighter;
+  margin-top: 9.3rem;
+  margin-bottom: 9.3rem;
+}
+.javascript {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.75rem;
+  margin-top: 9rem;
+}
