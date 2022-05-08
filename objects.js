@@ -157,3 +157,41 @@ console.log("trim ->", message.trim());
 
 // split the strings into different sub string arrays
 console.log("split with whitespace ->", message.split(" "));
+
+// ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+// template literals
+const name = "mudit";
+const chat = `new line
+without a newline character
+hi ${name}, 
+nice to meet you!
+you owe me ${2 + 498} rupees`;
+// ${} -> placeholder
+
+// ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+// Date() -> inbulit object
+// google - 'javascript date'
+const today = new Date();
+console.log("\n\nwithout argument (today's date)-> ", today);
+// Since, Date() is an object, it has its own methods and functions ->
+/* 
+today.getDate; 
+today.getDay;
+today.getMilliseconds;
+today.getTime;
+today.setFullYear(2012);
+
+for displaying ->
+today.toDateString();
+today.toISOString();
+today.toTimeString();
+*/
+
+const date1 = new Date("October 4 2002");
+console.log("month, date, year -> ", date1);
+// different formats in developer.mozilla
+
+const date2 = new Date(2010, 11, 24, 6, 45, 24);
+console.log("year, month[0], date, hour, minute, sec -> ", date2);
