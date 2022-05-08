@@ -107,3 +107,53 @@ console.log("copied using 'Object.assign' ->", people);
 let beings = { ...person };
 beings.race = "brown";
 console.log("copied using spread operator ->", beings);
+
+// ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+// strings
+// google - 'javascript string'
+// google - 'javascript math'
+
+// string ~ primitve
+// although, string is primitive data type, there are functions and methods of string
+// this is because, the compiler automatically converts the primitive datatype to 'String' constructor function
+// it is hence assumed to be an object.
+
+// something like this
+// string ~ object
+// built-in constructor 'String()'
+let text = new String("hello");
+let message = " my first message hehe ";
+
+// the length of the string
+console.log("length ->", message.length);
+
+// return the character at a perticular index
+console.log("character at index 0 ->", message[2]);
+
+// return the character at a perticular index
+console.log("character at index 1 ->", message[1]);
+
+// checks if the string contains 'xyz'
+console.log("does this string have 'my' ? ->", message.includes("my"));
+
+// if the string ends with 'xyz'
+console.log(
+  "does this string starts with 'mudit' ? ->",
+  message.startsWith("mudit")
+);
+
+// if the string ends with 'xyz'
+console.log("does this string ends with 'hehe' ? ->", message.endsWith("hehe"));
+
+//does not change the original one
+console.log("replace 'hehe' with 'haha' ->", message.replace("hehe", "haha"));
+
+// converts the text to uppercase
+console.log("uppercase ->", message.toUpperCase());
+
+// trims off the whitespace/extraspaces
+console.log("trim ->", message.trim());
+
+// split the strings into different sub string arrays
+console.log("split with whitespace ->", message.split(" "));
