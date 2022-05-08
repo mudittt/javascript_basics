@@ -71,3 +71,39 @@ const person = {
   name: "mudit",
   age: 19,
 };
+
+// ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+// enumeration of properties of an object
+for (let iterator of Object.keys(person)) {
+  console.log(iterator);
+  // Object is a built-in constructor function
+  // Object.keys return a string array which contains the properties and methods of this object
+}
+
+for (let iterator of Object.entries(person)) {
+  console.log(iterator);
+  // instead of returning the key only, 'Object.entries' return key value pair as an array
+}
+
+if ("name" in person) {
+  console.log("is 'name' in the object named 'person' ? ", true);
+}
+
+// ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+// cloning an object
+let human = {};
+// using for-in loop
+for (let key in person) human[key] = person[key];
+console.log("copied using for loop ->", human);
+
+// using Object.assign
+// let people = Object.assign({}, person);
+let people = Object.assign({ color: "yellow" }, person);
+console.log("copied using 'Object.assign' ->", people);
+
+// using spread operator
+let beings = { ...person };
+beings.race = "brown";
+console.log("copied using spread operator ->", beings);
