@@ -90,3 +90,33 @@ const slice = combined.slice(1, 4);
 
 console.log(combined);
 console.log(slice);
+
+// concatinating with spread
+const combinedUsingSpread = [...second, ...first];
+const sliceUsingSpread = [...combined];
+console.log(combinedUsingSpread);
+console.log(sliceUsingSpread);
+
+// iterating an array
+const randomArray = [56, 58, 45, 39, 99];
+
+// for of
+console.log("using for-of");
+for (const i of randomArray) {
+  console.log(i);
+}
+
+// for in
+console.log("using for-in");
+for (const i in randomArray) {
+  console.log(i, "-> ", randomArray[i]);
+}
+
+// for each
+console.log("using for-each");
+randomArray.forEach((element) => {
+  console.log(element);
+});
+/*randomArray.forEach(function (element) {
+  console.log(element);
+});*/
