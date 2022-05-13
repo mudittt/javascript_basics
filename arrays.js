@@ -74,3 +74,19 @@ console.log(" array -> ", marks);
 const middleElement = marks.splice(2, 1);
 console.log(" removed element (at index) -> ", middleElement);
 console.log(" array -> ", marks);
+
+// combining an array
+const first = [92, 93, 94];
+const second = [95, 96, 97];
+
+// combined 'first' with 'second' and stored it in 'combined'
+const combined = first.concat(second);
+
+// slicing an array
+// includes index '1' and goes till the index '4-1'
+// we can exclude second argument to store the remaining elements
+// we can skip all the arguments to just copy the whole damn thing
+const slice = combined.slice(1, 4);
+
+console.log(combined);
+console.log(slice);
