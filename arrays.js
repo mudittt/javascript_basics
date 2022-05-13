@@ -217,3 +217,18 @@ const items2 = filtered.map((element) => {
 // const items2 = filtered.map(element => ({ value: element }));
 // extra parenthesis is required
 console.log(items2);
+
+//
+
+// reducing an array
+const scoreOUTof100 = [67, 98, 76, 89, 97];
+
+// initially by-default accumulated = index[0] and current value = index[1]
+// we are returning their sum to the 'accumulated', so now accumlated = index[0] + index [1].
+// by the end of the array, we get the sum of all of its elements.
+
+// by 'reduce' we can reduce an array to a number, an object, etc
+const sum = scoreOUTof100.reduce(
+  (accumulated, currentValue) => accumulated + currentValue
+);
+console.log(sum);
