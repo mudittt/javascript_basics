@@ -66,7 +66,12 @@ const person = {
 
   // with 'set' the value after the assignment operator will be treated as argument of the setter.
   set fullName(value) {
+    if (typeof value !== "string")
+      throw new Error("Entered Value is Not a String.");
+
     const parts = value.split(" ");
+    if (parts.length !== 2)
+      throw new Error("Enter a Valid First and Last Name.");
     this.firstName = parts[0];
     this.lastName = parts[1];
   },
@@ -74,3 +79,12 @@ const person = {
 
 person.fullName = "bhadua kumar";
 console.log(person);
+
+//
+
+// try and catch
+try {
+  person.fullName = null;
+} catch (error) {
+  alert(error);
+}
