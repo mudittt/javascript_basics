@@ -117,6 +117,39 @@ console.log("using for-each");
 randomArray.forEach((element) => {
   console.log(element);
 });
+
 /*randomArray.forEach(function (element) {
   console.log(element);
 });*/
+
+// joining an array
+const normal = [23, 24, 25];
+const joined = normal.join(",");
+console.log(joined);
+
+// splitting (string)
+const originalString = "hi i am mudit";
+const parts = originalString.split(" ");
+const rejoinedString = parts.join("-");
+console.log(parts);
+console.log(rejoinedString);
+
+// sorting an array
+const unsorted = [34, 67, 31, 12, 38];
+unsorted.sort();
+console.log(unsorted);
+unsorted.reverse();
+console.log(unsorted);
+
+const student = [
+  { roll: 1, name: "tarun" },
+  { roll: 2, name: "shivam" },
+];
+
+// updated for objects.
+student.sort((a, b) => {
+  // comparison of ascii values
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+});
