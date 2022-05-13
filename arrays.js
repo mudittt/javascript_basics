@@ -25,6 +25,8 @@ console.log(numbers.indexOf("m"));
 // return the index of the latest occurence of that element.
 console.log(numbers.lastIndexOf(3));
 
+//
+
 // value types ~
 console.log("true if present, false if not present -> ", numbers.includes(0));
 console.log(numbers);
@@ -40,6 +42,8 @@ const course = [
   },
 ];
 
+//
+
 // reference types ~
 const yesORno = course.find(function (courseName) {
   return courseName.name === "node.js";
@@ -50,11 +54,15 @@ const index = course.findIndex(function (courseName) {
 console.log(yesORno);
 console.log(index);
 
+//
+
 // arrow function
 const arrow = course.find((courseName) => {
   return courseName.name === "node.js";
 });
 console.log(arrow);
+
+//
 
 // removing element
 const marks = [99, 98, 96, 97, 95, 93];
@@ -75,6 +83,8 @@ const middleElement = marks.splice(2, 1);
 console.log(" removed element (at index) -> ", middleElement);
 console.log(" array -> ", marks);
 
+//
+
 // combining an array
 const first = [92, 93, 94];
 const second = [95, 96, 97];
@@ -91,11 +101,15 @@ const slice = combined.slice(1, 4);
 console.log(combined);
 console.log(slice);
 
+//
+
 // concatinating with spread
 const combinedUsingSpread = [...second, ...first];
 const sliceUsingSpread = [...combined];
 console.log(combinedUsingSpread);
 console.log(sliceUsingSpread);
+
+//
 
 // iterating an array
 const randomArray = [56, 58, 45, 39, 99];
@@ -122,10 +136,14 @@ randomArray.forEach((element) => {
   console.log(element);
 });*/
 
+//
+
 // joining an array
 const normal = [23, 24, 25];
 const joined = normal.join(",");
 console.log(joined);
+
+//
 
 // splitting (string)
 const originalString = "hi i am mudit";
@@ -134,8 +152,10 @@ const rejoinedString = parts.join("-");
 console.log(parts);
 console.log(rejoinedString);
 
+//
+
 // sorting an array
-const unsorted = [34, 67, 31, 12, 38];
+const unsorted = [34, -67, 31, 12, 38];
 unsorted.sort();
 console.log(unsorted);
 unsorted.reverse();
@@ -153,3 +173,47 @@ student.sort((a, b) => {
   if (a.name > b.name) return 1;
   return 0;
 });
+
+//
+
+// every
+const ifAllPositive = unsorted.every(function (element) {
+  return element >= 0;
+});
+// the above piece of code will check if all the elements of 'unsorted' are positive or NOT.
+// it will return true if YES, and false if NO.
+// all the later elements will be ignored if one negative element is found.
+console.log(ifAllPositive);
+
+//
+
+// some
+const ifAtleastOnePositive = unsorted.some((element) => {
+  return element >= 0;
+});
+// the above piece of code will check if altleast one element of 'unsorted' is positive or NOT.
+// it will return true if YES, and false if NO.
+// all the later elements will be ignored if one positive element is found.
+console.log(ifAtleastOnePositive);
+
+//
+
+// filtering an array
+const filtered = unsorted.filter((value) => value <= 0);
+console.log(filtered);
+
+// mapping members of an array into something else,
+const items = filtered.map((element) => {
+  return "<li>" + element + "</li>";
+});
+const htmlCODE = "<ul>" + items.join("") + "</ul>";
+console.log(htmlCODE);
+
+// mapping them in an object
+const items2 = filtered.map((element) => {
+  const obj = { value: element };
+  return obj;
+});
+// const items2 = filtered.map(element => ({ value: element }));
+// extra parenthesis is required
+console.log(items2);
