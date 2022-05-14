@@ -88,3 +88,51 @@ try {
 } catch (error) {
   alert(error);
 }
+
+//
+
+// 'this' keyword
+// when used inside a method, it will indicate the object it is in.
+// But when used inside a normaL FUNCTION , it will refer to the WINDOW object.
+
+const video = {
+  title: "Oye lucky, lucky Oye!",
+  tags: ["abhay deol", "paresh rawal", "archana puran singh"],
+  showTags() {
+    // the first 'this' will point this 'video' object.
+    this.tags.forEach(function (i) {
+      // the 'this' below is inside a callback function,
+      // so it will point at the window object.
+      console.log(this.title, "->", i);
+      // BUT IF WE USE THE ARROW FUNCTION (=>), IT WILL POINT AT 'video' only.
+      // in order to make 'this' (inside call back function) point at 'video',
+      // we have to pass another arguemnt in 'foreach'
+    }, this);
+    // here the second argument 'this' indicates 'video' only
+    // because it is outside the callback function & inside video object.
+  },
+};
+
+video.showTags();
+
+function test(num1, num2) {
+  console.log(this);
+  // 'this' is pointing at the window object.
+}
+
+test();
+// function is an object, it has its own inbuilt methods.
+
+// call
+// first argument is the object that 'this' will point at.
+test.call({ funcName: "call" }, 1, 4);
+
+// apply
+// first argument is the object that 'this' will point at.
+// second arguement is an array with function paramters in it.
+test.apply({ funcName: "apply" }, [1, 4]);
+
+// bind
+// it is a type of function, we must call it.
+// it will permanently bind 'this' to whatever object we pass in bind().
+test.bind({ funcName: "bind-permanently" })(1, 2);
