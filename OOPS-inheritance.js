@@ -102,3 +102,52 @@ const Shapes = [new Circle(8, "blue"), new Square(9, "pink")];
 for (const iterator of Shapes) {
   console.log(iterator.duplicate());
 }
+
+// ~ ~ ~ inheritance alternatives ~ ~ ~
+
+const canWalk = {
+  // normal key-value pair
+  walk: function () {
+    console.log(". walk .");
+  },
+};
+
+const canEat = {
+  // normal key-value pair
+  eat: function () {
+    this.hunger--;
+    console.log(". eat .");
+  },
+};
+
+const canSwim = {
+  // normal key-value pair
+  swim: function () {
+    console.log(". swim .");
+  },
+};
+
+function Person() {}
+function Fish() {}
+
+// here we assigned canEat and canWalk to the person's prototype.
+// we shoukd make a function of this assignment as new species might be added in the code later.
+
+/*
+    Object.assign(Person.prototype, canEat, canWalk);
+*/
+
+function mix_In(target, ...sources) {
+  // rest operator (array)
+  // spread operator
+  Object.assign(target, ...sources);
+}
+
+// calling mix_In()
+mix_In(Person.prototype, canEat, canWalk);
+mix_In(Fish.prototype, canEat, canSwim);
+
+const human = new Person();
+const goldfish = new Fish();
+console.log(human);
+console.log(goldfish);
