@@ -1,5 +1,11 @@
 // Circle
-function Circle(rad) {
+function Circle(rad, color) {
+  // Shape(color);
+  // by writing the above line, the Shape() function will be called and the 'this' object will point at 'window' object.
+  Shape.call(this, color);
+  // by using the call method, we passed 'this' to be used as the current object.
+  // therefore 'this' will point at 'new' instead of  'window'.
+
   this.radius = rad;
 }
 
@@ -13,7 +19,8 @@ function Circle(rad) {
 */
 
 // Square
-function Square(a) {
+function Square(a, color) {
+  Shape.call(this, color);
   this.side = a;
 }
 
@@ -30,7 +37,9 @@ function Square(a) {
 */
 
 // by doing what we did in the following lines of code, we added two functions in Shape()'s prototype
-function Shape() {}
+function Shape(col) {
+  this.color = col;
+}
 
 // shape()'s prototype is 'Object'
 Shape.prototype.draw = function () {
@@ -53,5 +62,5 @@ Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 Square.prototype.constructor = Square;
 
-const c = new Circle(1);
-const s = new Square(1);
+const c = new Circle(1, "red");
+const s = new Square(1, "yellow");
