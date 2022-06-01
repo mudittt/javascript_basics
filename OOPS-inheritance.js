@@ -80,5 +80,25 @@ function extend(Child, Parent) {
 extend(Circle, Shape);
 extend(Square, Shape);
 
+Circle.prototype.duplicate = function () {
+  // Shape.prototype.duplicate();
+  // for a healthier practice, we should use the CALL method ~
+  Shape.prototype.duplicate.call(this);
+  console.log("duplicate Circle.");
+};
+
+Square.prototype.duplicate = function () {
+  // Shape.prototype.duplicate();
+  // for a healthier practice, we should use the CALL method ~
+  Shape.prototype.duplicate.call(this);
+  console.log("duplicate Square.");
+};
+
 const c = new Circle(1, "red");
 const s = new Square(1, "yellow");
+
+const Shapes = [new Circle(8, "blue"), new Square(9, "pink")];
+
+for (const iterator of Shapes) {
+  console.log(iterator.duplicate());
+}
