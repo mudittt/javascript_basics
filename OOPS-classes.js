@@ -76,12 +76,30 @@ class Triangle {
       console.log("move", this);
     });
   }
-  gettingObjects() {
-    _move.get(this)();
+
+  // get
+
+  get move() {
+    return _move.get(this)();
   }
+  get height() {
+    return _height.get(this);
+  }
+  get base() {
+    return _base.get(this);
+  }
+
+  // set
+
+  set height(h) {
+    if (h <= 0) throw new Error("invalid value of height !");
+    _height.set(this, h);
+  }
+
+  // public function
   sayHello() {
     console.log("hello!");
   }
 }
 
-const t = new Triangle();
+const t = new Triangle(6, 8);
