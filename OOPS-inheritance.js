@@ -53,14 +53,32 @@ Shape.prototype.duplicate = function () {
 
 // Here we made a square()'s and Circle()'s prototype = Shape().
 // while doing so we are losing the 'prototype.constructor' property of Circle and Square.
-Square.prototype = Object.create(Shape.prototype);
-Circle.prototype = Object.create(Shape.prototype);
+
+/*
+    Square.prototype = Object.create(Shape.prototype);
+    Circle.prototype = Object.create(Shape.prototype);
+*/
 
 // As a good practice, we are reassigning the 'prototype.constructor' property.
 //  ~ new Circle.prototype.constructor(9) == new Circle(9) ~
 //  ~ new Square.prototype.constructor(9) == new Square(9) ~
-Circle.prototype.constructor = Circle;
-Square.prototype.constructor = Square;
+
+/*
+    Circle.prototype.constructor = Circle;
+    Square.prototype.constructor = Square;
+*/
+
+// we created a lot of noise in our code by writing indivisual code for inheritance of Circle and Square,
+// if there we 50 different polygons in our code, it would've been a waste of codelines , memory, time, etc etc
+// so we should make a function for that ~
+
+function extend(Child, Parent) {
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Child;
+}
+
+extend(Circle, Shape);
+extend(Square, Shape);
 
 const c = new Circle(1, "red");
 const s = new Square(1, "yellow");
