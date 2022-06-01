@@ -60,4 +60,28 @@ const r = new Rectangle(10, 5);
 
 // can still get the elements using this complicated method.
 const key = Object.getOwnPropertySymbols(r)[0];
-console.log(r[key]);
+// console.log(r[key]);
+
+// private members using weakMaps()
+const _height = new WeakMap();
+const _base = new WeakMap();
+const _move = new WeakMap();
+
+class Triangle {
+  constructor(height, base) {
+    // WeakMap generates a key-value pair
+    _height.set(this, height);
+    _base.set(this, base);
+    _move.set(this, () => {
+      console.log("move", this);
+    });
+  }
+  gettingObjects() {
+    _move.get(this)();
+  }
+  sayHello() {
+    console.log("hello!");
+  }
+}
+
+const t = new Triangle();
