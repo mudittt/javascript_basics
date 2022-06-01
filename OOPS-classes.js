@@ -103,3 +103,32 @@ class Triangle {
 }
 
 const t = new Triangle(6, 8);
+
+// INHERITANCE in CLASSES
+
+class Company {
+  constructor(brand_name) {
+    this.brand = brand_name;
+  }
+
+  Motive() {
+    console.log("The Motive of a Company is to make cheap but good products !");
+  }
+  ram() {
+    console.log("ram - Random Access Memory !");
+  }
+}
+
+class Laptop extends Company {
+  ram() {
+    super.ram();
+    console.log("ram - 8gb !");
+  }
+
+  constructor(company_name) {
+    // super keyword is used to call the parent class objects/methods
+    super(company_name);
+  }
+}
+
+const myLappy = new Laptop("Apple Macbook M1 air");
